@@ -1,0 +1,1001 @@
+<html><head></head><body><div class="apidocDiv">
+<style>
+/*csslint
+*/
+.apidocDiv {
+    background: #fff;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.apidocDiv a[href] {
+    color: #33f;
+    font-weight: bold;
+    text-decoration: none;
+}
+.apidocDiv a[href]:hover {
+    text-decoration: underline;
+}
+.apidocCodeCommentSpan {
+    background: #bbf;
+    color: #000;
+    display: block;
+}
+.apidocCodeKeywordSpan {
+    color: #d00;
+    font-weight: bold;
+}
+.apidocCodePre {
+    background: #eef;
+    border: 1px solid;
+    color: #777;
+    padding: 5px;
+    white-space: pre-wrap;
+}
+.apidocFooterDiv {
+    margin-top: 20px;
+    text-align: center;
+}
+.apidocModuleLi {
+    margin-top: 10px;
+}
+.apidocSectionDiv {
+    border-top: 1px solid;
+    margin-top: 20px;
+}
+.apidocSignatureSpan {
+    color: #777;
+    font-weight: bold;
+}
+</style>
+<h1>api documentation for
+    <a href="https://github.com/bnoguchi/hooks-js/">hooks (v0.3.2)</a>
+</h1>
+<h4>Adds pre and post hook functionality to your JavaScript methods.</h4>
+<div class="apidocSectionDiv"><a href="#apidoc.tableOfContents" id="apidoc.tableOfContents"><h1>table of contents</h1></a><ol>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.hooks">module hooks</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.hooks._lazySetupHooks">
+            function <span class="apidocSignatureSpan">hooks.</span>_lazySetupHooks
+            <span class="apidocSignatureSpan">(proto, methodName, errorCb)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.hooks.hook">
+            function <span class="apidocSignatureSpan">hooks.</span>hook
+            <span class="apidocSignatureSpan">(name, fn, errorCb)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.hooks.post">
+            function <span class="apidocSignatureSpan">hooks.</span>post
+            <span class="apidocSignatureSpan">(name, isAsync, fn)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.hooks.pre">
+            function <span class="apidocSignatureSpan">hooks.</span>pre
+            <span class="apidocSignatureSpan">(name, isAsync, fn, errorCb)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.hooks.removePre">
+            function <span class="apidocSignatureSpan">hooks.</span>removePre
+            <span class="apidocSignatureSpan">(name, fnToRemove)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan"></span>hooks</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">hooks.</span>hooks_alt</span>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.hooks.hooks">module hooks.hooks</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.hooks.hooks._lazySetupHooks">
+            function <span class="apidocSignatureSpan">hooks.hooks.</span>_lazySetupHooks
+            <span class="apidocSignatureSpan">(proto, methodName, errorCb)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.hooks.hooks.hook">
+            function <span class="apidocSignatureSpan">hooks.hooks.</span>hook
+            <span class="apidocSignatureSpan">(name, fn, errorCb)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.hooks.hooks.post">
+            function <span class="apidocSignatureSpan">hooks.hooks.</span>post
+            <span class="apidocSignatureSpan">(name, isAsync, fn)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.hooks.hooks.pre">
+            function <span class="apidocSignatureSpan">hooks.hooks.</span>pre
+            <span class="apidocSignatureSpan">(name, isAsync, fn, errorCb)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.hooks.hooks.removePre">
+            function <span class="apidocSignatureSpan">hooks.hooks.</span>removePre
+            <span class="apidocSignatureSpan">(name, fnToRemove)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.hooks.hooks_alt">module hooks.hooks_alt</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.hooks.hooks_alt.hook">
+            function <span class="apidocSignatureSpan">hooks.hooks_alt.</span>hook
+            <span class="apidocSignatureSpan">(name, fn, err)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.hooks.hooks_alt.post">
+            function <span class="apidocSignatureSpan">hooks.hooks_alt.</span>post
+            <span class="apidocSignatureSpan">(name, fn, isAsync)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.hooks.hooks_alt.pre">
+            function <span class="apidocSignatureSpan">hooks.hooks_alt.</span>pre
+            <span class="apidocSignatureSpan">(name, fn, isAsync)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+</ol></div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.hooks" id="apidoc.module.hooks">module hooks</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.hooks._lazySetupHooks" id="apidoc.element.hooks._lazySetupHooks">
+        function <span class="apidocSignatureSpan">hooks.</span>_lazySetupHooks
+        <span class="apidocSignatureSpan">(proto, methodName, errorCb)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">_lazySetupHooks = function (proto, methodName, errorCb) {
+  if ('undefined' === typeof proto[methodName].numAsyncPres) {
+    this.hook(methodName, proto[methodName], errorCb);
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  errorCb = fn;
+  fn = isAsync;
+  isAsync = false;
+}
+var proto = this.prototype || this
+  , pres = proto._pres = proto._pres || {};
+
+this.<span class="apidocCodeKeywordSpan">_lazySetupHooks</span>(proto, name, errorCb);
+
+if (fn.isAsync = isAsync) {
+  proto[name].numAsyncPres++;
+}
+
+(pres[name] = pres[name] || []).push(fn);
+return this;
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.hooks.hook" id="apidoc.element.hooks.hook">
+        function <span class="apidocSignatureSpan">hooks.</span>hook
+        <span class="apidocSignatureSpan">(name, fn, errorCb)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">hook = function (name, fn, errorCb) {
+  if (arguments.length === 1 &amp;&amp; typeof name === 'object') {
+    for (var k in name) { // `name` is a hash of hookName-&gt;hookFn
+      this.hook(k, name[k]);
+    }
+    return;
+  }
+
+  var proto = this.prototype || this
+    , pres = proto._pres = proto._pres || {}
+    , posts = proto._posts = proto._posts || {};
+  pres[name] = pres[name] || [];
+  posts[name] = posts[name] || [];
+
+  proto[name] = function () {
+    var self = this
+      , hookArgs // arguments eventually passed to the hook - are mutable
+      , lastArg = arguments[arguments.length-1]
+      , pres = this._pres[name]
+      , posts = this._posts[name]
+      , _total = pres.length
+      , _current = -1
+      , _asyncsLeft = proto[name].numAsyncPres
+      , _next = function () {
+          if (arguments[0] instanceof Error) {
+            return handleError(arguments[0]);
+          }
+          var _args = Array.prototype.slice.call(arguments)
+            , currPre
+            , preArgs;
+          if (_args.length &amp;&amp; !(arguments[0] == null &amp;&amp; typeof lastArg === 'function'))
+            hookArgs = _args;
+          if (++_current &lt; _total) {
+            currPre = pres[_current]
+            if (currPre.isAsync &amp;&amp; currPre.length &lt; 2)
+              throw new Error("Your pre must have next and done arguments -- e.g., function (next, done, ...)");
+            if (currPre.length &lt; 1)
+              throw new Error("Your pre must have a next argument -- e.g., function (next, ...)");
+            preArgs = (currPre.isAsync
+                        ? [once(_next), once(_asyncsDone)]
+                        : [once(_next)]).concat(hookArgs);
+            return currPre.apply(self, preArgs);
+          } else if (!proto[name].numAsyncPres) {
+            return _done.apply(self, hookArgs);
+          }
+        }
+      , _done = function () {
+          var args_ = Array.prototype.slice.call(arguments)
+            , ret, total_, current_, next_, done_, postArgs;
+
+          if (_current === _total) {
+
+            next_ = function () {
+              if (arguments[0] instanceof Error) {
+                return handleError(arguments[0]);
+              }
+              var args_ = Array.prototype.slice.call(arguments, 1)
+                , currPost
+                , postArgs;
+              if (args_.length) hookArgs = args_;
+              if (++current_ &lt; total_) {
+                currPost = posts[current_]
+                if (currPost.length &lt; 1)
+                  throw new Error("Your post must have a next argument -- e.g., function (next, ...)");
+                postArgs = [once(next_)].concat(hookArgs);
+                return currPost.apply(self, postArgs);
+              } else if (typeof lastArg === 'function'){
+                // All post handlers are done, call original callback function
+                return lastArg.apply(self, arguments);
+              }
+            };
+
+            // We are assuming that if the last argument provided to the wrapped function is a function, it was expecting
+            // a callback.  We trap that callback and wait to call it until all post handlers have finished.
+            if(typeof lastArg === 'function'){
+              args_[args_.length - 1] = once(next_);
+            }
+
+            total_ = posts.length;
+            current_ = -1;
+            ret = fn.apply(self, args_); // Execute wrapped function, post handlers come afterward
+
+            if (total_ &amp;&amp; typeof lastArg !== 'function') return next_();  // no callback provided, execute next_() manually
+            return ret;
+          }
+        };
+    if (_asyncsLeft) {
+      function _asyncsDone (err) {
+        if (err &amp;&amp; err instanceof Error) {
+          return handleError(err);
+        }
+        --_asyncsLeft || _done.apply(self, hookArgs);
+      }
+    }
+    function handleError (err) {
+      if ('function' == typeof lastArg)
+        return lastArg(err);
+      if (errorCb) return errorCb.call(self, err);
+      throw err;
+    }
+    return _next.apply(this, arguments);
+  };
+
+  proto[name].numAsyncPres = 0;
+
+  return this;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+// Add hooks' methods: `hook`, `pre`, and `post`
+for (var k in hooks) {
+Document[k] = hooks[k];
+}
+
+// Define a new method that is able to invoke pre and post middleware
+Document.<span class="apidocCodeKeywordSpan">hook</span>('save', Document.prototype.save);
+
+// Define a middleware function to be invoked before 'save'
+Document.pre('save', function validate (next) {
+// The `this` context inside of `pre` and `post` functions
+// is the Document instance
+if (this.isValid()) next();      // next() passes control to the next middleware
+                                 // or to the target method itself
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.hooks.post" id="apidoc.element.hooks.post">
+        function <span class="apidocSignatureSpan">hooks.</span>post
+        <span class="apidocSignatureSpan">(name, isAsync, fn)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">post = function (name, isAsync, fn) {
+  if (arguments.length === 2) {
+    fn = isAsync;
+    isAsync = false;
+  }
+  var proto = this.prototype || this
+    , posts = proto._posts = proto._posts || {};
+
+  this._lazySetupHooks(proto, name);
+  (posts[name] = posts[name] || []).push(fn);
+  return this;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  // is the Document instance
+  if (this.isValid()) next();      // next() passes control to the next middleware
+                                   // or to the target method itself
+  else next(new Error("Invalid")); // next(error) invokes an error callback
+});
+
+// Define a middleware function to be invoked after 'save'
+Document.<span class="apidocCodeKeywordSpan">post</span>('save', function createJob (next) {
+  this.sendToBackgroundQueue();
+  next();
+});
+```
+
+If you already have defined `Document.prototype` methods for which you want pres and posts,
+then you do not need to explicitly invoke `Document.hook(...)`. Invoking `Document.pre(methodName, fn)`
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.hooks.pre" id="apidoc.element.hooks.pre">
+        function <span class="apidocSignatureSpan">hooks.</span>pre
+        <span class="apidocSignatureSpan">(name, isAsync, fn, errorCb)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">pre = function (name, isAsync, fn, errorCb) {
+  if ('boolean' !== typeof arguments[1]) {
+    errorCb = fn;
+    fn = isAsync;
+    isAsync = false;
+  }
+  var proto = this.prototype || this
+    , pres = proto._pres = proto._pres || {};
+
+  this._lazySetupHooks(proto, name, errorCb);
+
+  if (fn.isAsync = isAsync) {
+    proto[name].numAsyncPres++;
+  }
+
+  (pres[name] = pres[name] || []).push(fn);
+  return this;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  Document[k] = hooks[k];
+}
+
+// Define a new method that is able to invoke pre and post middleware
+Document.hook('save', Document.prototype.save);
+
+// Define a middleware function to be invoked before 'save'
+Document.<span class="apidocCodeKeywordSpan">pre</span>('save', function validate (next) {
+  // The `this` context inside of `pre` and `post` functions
+  // is the Document instance
+  if (this.isValid()) next();      // next() passes control to the next middleware
+                                   // or to the target method itself
+  else next(new Error("Invalid")); // next(error) invokes an error callback
+});
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.hooks.removePre" id="apidoc.element.hooks.removePre">
+        function <span class="apidocSignatureSpan">hooks.</span>removePre
+        <span class="apidocSignatureSpan">(name, fnToRemove)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">removePre = function (name, fnToRemove) {
+  var proto = this.prototype || this
+    , pres = proto._pres || (proto._pres || {});
+  if (!pres[name]) return this;
+  if (arguments.length === 1) {
+    // Remove all pre callbacks for hook `name`
+    pres[name].length = 0;
+  } else {
+    pres[name] = pres[name].filter( function (currFn) {
+      return currFn !== fnToRemove;
+    });
+  }
+  return this;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+7. `hooks` implementation keeps track of how many parallel middleware has been defined per target function. It detects that both
+ asynchronous pre middlewares (`preOne` and `preTwo`) have finally called their `done` functions (`doneOne` and `doneTwo`), so the
+ implementation finally invokes our `targetFn` (i.e., our core `save` business logic).
+
+## Removing Pres
+
+You can remove a particular pre associated with a hook:
+
+Document.pre('set', someFn);
+Document.<span class="apidocCodeKeywordSpan">removePre</span>('set', someFn);
+
+And you can also remove all pres associated with a hook:
+Document.removePre('set'); // Removes all declared `pre`s on the hook 'set'
+
+## Tests
+To run the tests:
+make test
+...</pre></li>
+    </ul>
+
+
+
+
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.hooks.hooks" id="apidoc.module.hooks.hooks">module hooks.hooks</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.hooks.hooks._lazySetupHooks" id="apidoc.element.hooks.hooks._lazySetupHooks">
+        function <span class="apidocSignatureSpan">hooks.hooks.</span>_lazySetupHooks
+        <span class="apidocSignatureSpan">(proto, methodName, errorCb)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">_lazySetupHooks = function (proto, methodName, errorCb) {
+  if ('undefined' === typeof proto[methodName].numAsyncPres) {
+    this.hook(methodName, proto[methodName], errorCb);
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  errorCb = fn;
+  fn = isAsync;
+  isAsync = false;
+}
+var proto = this.prototype || this
+  , pres = proto._pres = proto._pres || {};
+
+this.<span class="apidocCodeKeywordSpan">_lazySetupHooks</span>(proto, name, errorCb);
+
+if (fn.isAsync = isAsync) {
+  proto[name].numAsyncPres++;
+}
+
+(pres[name] = pres[name] || []).push(fn);
+return this;
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.hooks.hooks.hook" id="apidoc.element.hooks.hooks.hook">
+        function <span class="apidocSignatureSpan">hooks.hooks.</span>hook
+        <span class="apidocSignatureSpan">(name, fn, errorCb)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">hook = function (name, fn, errorCb) {
+  if (arguments.length === 1 &amp;&amp; typeof name === 'object') {
+    for (var k in name) { // `name` is a hash of hookName-&gt;hookFn
+      this.hook(k, name[k]);
+    }
+    return;
+  }
+
+  var proto = this.prototype || this
+    , pres = proto._pres = proto._pres || {}
+    , posts = proto._posts = proto._posts || {};
+  pres[name] = pres[name] || [];
+  posts[name] = posts[name] || [];
+
+  proto[name] = function () {
+    var self = this
+      , hookArgs // arguments eventually passed to the hook - are mutable
+      , lastArg = arguments[arguments.length-1]
+      , pres = this._pres[name]
+      , posts = this._posts[name]
+      , _total = pres.length
+      , _current = -1
+      , _asyncsLeft = proto[name].numAsyncPres
+      , _next = function () {
+          if (arguments[0] instanceof Error) {
+            return handleError(arguments[0]);
+          }
+          var _args = Array.prototype.slice.call(arguments)
+            , currPre
+            , preArgs;
+          if (_args.length &amp;&amp; !(arguments[0] == null &amp;&amp; typeof lastArg === 'function'))
+            hookArgs = _args;
+          if (++_current &lt; _total) {
+            currPre = pres[_current]
+            if (currPre.isAsync &amp;&amp; currPre.length &lt; 2)
+              throw new Error("Your pre must have next and done arguments -- e.g., function (next, done, ...)");
+            if (currPre.length &lt; 1)
+              throw new Error("Your pre must have a next argument -- e.g., function (next, ...)");
+            preArgs = (currPre.isAsync
+                        ? [once(_next), once(_asyncsDone)]
+                        : [once(_next)]).concat(hookArgs);
+            return currPre.apply(self, preArgs);
+          } else if (!proto[name].numAsyncPres) {
+            return _done.apply(self, hookArgs);
+          }
+        }
+      , _done = function () {
+          var args_ = Array.prototype.slice.call(arguments)
+            , ret, total_, current_, next_, done_, postArgs;
+
+          if (_current === _total) {
+
+            next_ = function () {
+              if (arguments[0] instanceof Error) {
+                return handleError(arguments[0]);
+              }
+              var args_ = Array.prototype.slice.call(arguments, 1)
+                , currPost
+                , postArgs;
+              if (args_.length) hookArgs = args_;
+              if (++current_ &lt; total_) {
+                currPost = posts[current_]
+                if (currPost.length &lt; 1)
+                  throw new Error("Your post must have a next argument -- e.g., function (next, ...)");
+                postArgs = [once(next_)].concat(hookArgs);
+                return currPost.apply(self, postArgs);
+              } else if (typeof lastArg === 'function'){
+                // All post handlers are done, call original callback function
+                return lastArg.apply(self, arguments);
+              }
+            };
+
+            // We are assuming that if the last argument provided to the wrapped function is a function, it was expecting
+            // a callback.  We trap that callback and wait to call it until all post handlers have finished.
+            if(typeof lastArg === 'function'){
+              args_[args_.length - 1] = once(next_);
+            }
+
+            total_ = posts.length;
+            current_ = -1;
+            ret = fn.apply(self, args_); // Execute wrapped function, post handlers come afterward
+
+            if (total_ &amp;&amp; typeof lastArg !== 'function') return next_();  // no callback provided, execute next_() manually
+            return ret;
+          }
+        };
+    if (_asyncsLeft) {
+      function _asyncsDone (err) {
+        if (err &amp;&amp; err instanceof Error) {
+          return handleError(err);
+        }
+        --_asyncsLeft || _done.apply(self, hookArgs);
+      }
+    }
+    function handleError (err) {
+      if ('function' == typeof lastArg)
+        return lastArg(err);
+      if (errorCb) return errorCb.call(self, err);
+      throw err;
+    }
+    return _next.apply(this, arguments);
+  };
+
+  proto[name].numAsyncPres = 0;
+
+  return this;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+// Add hooks' methods: `hook`, `pre`, and `post`
+for (var k in hooks) {
+Document[k] = hooks[k];
+}
+
+// Define a new method that is able to invoke pre and post middleware
+Document.<span class="apidocCodeKeywordSpan">hook</span>('save', Document.prototype.save);
+
+// Define a middleware function to be invoked before 'save'
+Document.pre('save', function validate (next) {
+// The `this` context inside of `pre` and `post` functions
+// is the Document instance
+if (this.isValid()) next();      // next() passes control to the next middleware
+                                 // or to the target method itself
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.hooks.hooks.post" id="apidoc.element.hooks.hooks.post">
+        function <span class="apidocSignatureSpan">hooks.hooks.</span>post
+        <span class="apidocSignatureSpan">(name, isAsync, fn)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">post = function (name, isAsync, fn) {
+  if (arguments.length === 2) {
+    fn = isAsync;
+    isAsync = false;
+  }
+  var proto = this.prototype || this
+    , posts = proto._posts = proto._posts || {};
+
+  this._lazySetupHooks(proto, name);
+  (posts[name] = posts[name] || []).push(fn);
+  return this;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  // is the Document instance
+  if (this.isValid()) next();      // next() passes control to the next middleware
+                                   // or to the target method itself
+  else next(new Error("Invalid")); // next(error) invokes an error callback
+});
+
+// Define a middleware function to be invoked after 'save'
+Document.<span class="apidocCodeKeywordSpan">post</span>('save', function createJob (next) {
+  this.sendToBackgroundQueue();
+  next();
+});
+```
+
+If you already have defined `Document.prototype` methods for which you want pres and posts,
+then you do not need to explicitly invoke `Document.hook(...)`. Invoking `Document.pre(methodName, fn)`
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.hooks.hooks.pre" id="apidoc.element.hooks.hooks.pre">
+        function <span class="apidocSignatureSpan">hooks.hooks.</span>pre
+        <span class="apidocSignatureSpan">(name, isAsync, fn, errorCb)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">pre = function (name, isAsync, fn, errorCb) {
+  if ('boolean' !== typeof arguments[1]) {
+    errorCb = fn;
+    fn = isAsync;
+    isAsync = false;
+  }
+  var proto = this.prototype || this
+    , pres = proto._pres = proto._pres || {};
+
+  this._lazySetupHooks(proto, name, errorCb);
+
+  if (fn.isAsync = isAsync) {
+    proto[name].numAsyncPres++;
+  }
+
+  (pres[name] = pres[name] || []).push(fn);
+  return this;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  Document[k] = hooks[k];
+}
+
+// Define a new method that is able to invoke pre and post middleware
+Document.hook('save', Document.prototype.save);
+
+// Define a middleware function to be invoked before 'save'
+Document.<span class="apidocCodeKeywordSpan">pre</span>('save', function validate (next) {
+  // The `this` context inside of `pre` and `post` functions
+  // is the Document instance
+  if (this.isValid()) next();      // next() passes control to the next middleware
+                                   // or to the target method itself
+  else next(new Error("Invalid")); // next(error) invokes an error callback
+});
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.hooks.hooks.removePre" id="apidoc.element.hooks.hooks.removePre">
+        function <span class="apidocSignatureSpan">hooks.hooks.</span>removePre
+        <span class="apidocSignatureSpan">(name, fnToRemove)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">removePre = function (name, fnToRemove) {
+  var proto = this.prototype || this
+    , pres = proto._pres || (proto._pres || {});
+  if (!pres[name]) return this;
+  if (arguments.length === 1) {
+    // Remove all pre callbacks for hook `name`
+    pres[name].length = 0;
+  } else {
+    pres[name] = pres[name].filter( function (currFn) {
+      return currFn !== fnToRemove;
+    });
+  }
+  return this;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+7. `hooks` implementation keeps track of how many parallel middleware has been defined per target function. It detects that both
+ asynchronous pre middlewares (`preOne` and `preTwo`) have finally called their `done` functions (`doneOne` and `doneTwo`), so the
+ implementation finally invokes our `targetFn` (i.e., our core `save` business logic).
+
+## Removing Pres
+
+You can remove a particular pre associated with a hook:
+
+Document.pre('set', someFn);
+Document.<span class="apidocCodeKeywordSpan">removePre</span>('set', someFn);
+
+And you can also remove all pres associated with a hook:
+Document.removePre('set'); // Removes all declared `pre`s on the hook 'set'
+
+## Tests
+To run the tests:
+make test
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.hooks.hooks_alt" id="apidoc.module.hooks.hooks_alt">module hooks.hooks_alt</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.hooks.hooks_alt.hook" id="apidoc.element.hooks.hooks_alt.hook">
+        function <span class="apidocSignatureSpan">hooks.hooks_alt.</span>hook
+        <span class="apidocSignatureSpan">(name, fn, err)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">hook = function (name, fn, err) {
+  if (arguments.length === 1 &amp;&amp; typeof name === 'object') {
+    for (var k in name) { // `name` is a hash of hookName-&gt;hookFn
+      this.hook(k, name[k]);
+    }
+    return;
+  }
+
+  if (!err) err = fn;
+
+  var proto = this.prototype || this
+    , pres = proto._pres = proto._pres || {}
+    , posts = proto._posts = proto._posts || {};
+  pres[name] = pres[name] || [];
+  posts[name] = posts[name] || [];
+
+  function noop () {}
+
+  proto[name] = function () {
+    var self = this
+      , pres = this._pres[name]
+      , posts = this._posts[name]
+      , numAsyncPres = 0
+      , hookArgs = [].slice.call(arguments)
+      , preChain = pres.map( function (pre, i) {
+          var wrapper = function () {
+            if (arguments[0] instanceof Error)
+              return err(arguments[0]);
+            if (numAsyncPres) {
+              // arguments[1] === asyncComplete
+              if (arguments.length)
+                hookArgs = [].slice.call(arguments, 2);
+              pre.apply(self,
+                [ preChain[i+1] || allPresInvoked,
+                  asyncComplete
+                ].concat(hookArgs)
+              );
+            } else {
+              if (arguments.length)
+                hookArgs = [].slice.call(arguments);
+              pre.apply(self,
+                [ preChain[i+1] || allPresDone ].concat(hookArgs));
+            }
+          }; // end wrapper = function () {...
+          if (wrapper.isAsync = pre.isAsync)
+            numAsyncPres++;
+          return wrapper;
+        }); // end posts.map(...)
+    function allPresInvoked () {
+      if (arguments[0] instanceof Error)
+        err(arguments[0]);
+    }
+
+    function allPresDone () {
+      if (arguments[0] instanceof Error)
+        return err(arguments[0]);
+      if (arguments.length)
+        hookArgs = [].slice.call(arguments);
+      fn.apply(self, hookArgs);
+      var postChain = posts.map( function (post, i) {
+        var wrapper = function () {
+          if (arguments[0] instanceof Error)
+            return err(arguments[0]);
+          if (arguments.length)
+            hookArgs = [].slice.call(arguments);
+          post.apply(self,
+            [ postChain[i+1] || noop].concat(hookArgs));
+        }; // end wrapper = function () {...
+        return wrapper;
+      }); // end posts.map(...)
+      if (postChain.length) postChain[0]();
+    }
+
+    if (numAsyncPres) {
+      complete = numAsyncPres;
+      function asyncComplete () {
+        if (arguments[0] instanceof Error)
+          return err(arguments[0]);
+        --complete || allPresDone.call(this);
+      }
+    }
+    (preChain[0] || allPresDone)();
+  };
+
+  return this;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+// Add hooks' methods: `hook`, `pre`, and `post`
+for (var k in hooks) {
+Document[k] = hooks[k];
+}
+
+// Define a new method that is able to invoke pre and post middleware
+Document.<span class="apidocCodeKeywordSpan">hook</span>('save', Document.prototype.save);
+
+// Define a middleware function to be invoked before 'save'
+Document.pre('save', function validate (next) {
+// The `this` context inside of `pre` and `post` functions
+// is the Document instance
+if (this.isValid()) next();      // next() passes control to the next middleware
+                                 // or to the target method itself
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.hooks.hooks_alt.post" id="apidoc.element.hooks.hooks_alt.post">
+        function <span class="apidocSignatureSpan">hooks.hooks_alt.</span>post
+        <span class="apidocSignatureSpan">(name, fn, isAsync)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">post = function (name, fn, isAsync) {
+  var proto = this.prototype
+    , posts = proto._posts = proto._posts || {};
+  (posts[name] = posts[name] || []).push(fn);
+  return this;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  // is the Document instance
+  if (this.isValid()) next();      // next() passes control to the next middleware
+                                   // or to the target method itself
+  else next(new Error("Invalid")); // next(error) invokes an error callback
+});
+
+// Define a middleware function to be invoked after 'save'
+Document.<span class="apidocCodeKeywordSpan">post</span>('save', function createJob (next) {
+  this.sendToBackgroundQueue();
+  next();
+});
+```
+
+If you already have defined `Document.prototype` methods for which you want pres and posts,
+then you do not need to explicitly invoke `Document.hook(...)`. Invoking `Document.pre(methodName, fn)`
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.hooks.hooks_alt.pre" id="apidoc.element.hooks.hooks_alt.pre">
+        function <span class="apidocSignatureSpan">hooks.hooks_alt.</span>pre
+        <span class="apidocSignatureSpan">(name, fn, isAsync)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">pre = function (name, fn, isAsync) {
+  var proto = this.prototype
+    , pres = proto._pres = proto._pres || {};
+  if (fn.isAsync = isAsync) {
+    this.prototype[name].numAsyncPres++;
+  }
+  (pres[name] = pres[name] || []).push(fn);
+  return this;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  Document[k] = hooks[k];
+}
+
+// Define a new method that is able to invoke pre and post middleware
+Document.hook('save', Document.prototype.save);
+
+// Define a middleware function to be invoked before 'save'
+Document.<span class="apidocCodeKeywordSpan">pre</span>('save', function validate (next) {
+  // The `this` context inside of `pre` and `post` functions
+  // is the Document instance
+  if (this.isValid()) next();      // next() passes control to the next middleware
+                                   // or to the target method itself
+  else next(new Error("Invalid")); // next(error) invokes an error callback
+});
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocFooterDiv">
+    [ this document was created with
+    <a href="https://github.com/kaizhu256/node-utility2" target="_blank">utility2</a>
+    ]
+</div>
+</div>
+</body></html>
